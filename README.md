@@ -1,4 +1,4 @@
-# wcf-policy
+# mvc-localization
 Sample application showing (nearly) alle aspects of internationalization/localization of an ASP.NET MVC application.
 
 See https://ajdotnet.wordpress.com/2013/11/08/asp-net-mvc-internationalization/ for background.
