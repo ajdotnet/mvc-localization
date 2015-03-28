@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MyStocks.BusinessContract")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Commerzbank AG")]
-[assembly: AssemblyProduct("MyStocks.BusinessContract")]
-[assembly: AssemblyCopyright("Copyright © Commerzbank AG 2013")]
+[assembly: AssemblyCompany("ajdotnet.wordpress.com")]
+[assembly: AssemblyProduct("MyStocks Sample Application")]
+[assembly: AssemblyCopyright("Copyright © Alexander Jung 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -18,9 +18,7 @@ using System.Runtime.InteropServices;
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2b4d1f30-173b-4cb0-825e-d5d3340d8e1a")]
+[assembly: CLSCompliant(true)]
 
 // Version information for an assembly consists of the following four values:
 //

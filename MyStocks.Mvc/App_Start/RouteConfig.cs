@@ -3,14 +3,14 @@ using System.Web.Routing;
 
 namespace MyStocks.Mvc
 {
-    public class RouteConfig
+    public static class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             // change the current culture
-            var route = routes.MapRoute(
+            routes.MapRoute(
                 name: "SetPreferredCulture",
                 url: "SetPreferredCulture/{culture}",
                 defaults: new { controller = "Culture", action = "SetPreferredCulture", culture = UrlParameter.Optional }

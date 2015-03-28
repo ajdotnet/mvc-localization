@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AJ.Common;
 using System.Web.Http;
 
 namespace MyStocks.Mvc
@@ -9,6 +7,8 @@ namespace MyStocks.Mvc
     {
         public static void Register(HttpConfiguration config)
         {
+            Guard.AssertNotNull(config, "config");
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using MyStocks.Mvc.Helper;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MyStocks.Mvc
 {
@@ -15,6 +16,7 @@ namespace MyStocks.Mvc
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

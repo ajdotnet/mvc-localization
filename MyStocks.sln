@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStocks.Mvc", "MyStocks.Mvc\MyStocks.Mvc.csproj", "{DF3CDFE8-63C3-4BD5-85EC-2881EDA9D5BE}"
 EndProject
@@ -10,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStocks.BusinessService", "MyStocks.BusinessService\MyStocks.BusinessService.csproj", "{9574F917-ACC7-4565-BFEA-55F27D04895C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStocks.UnitTests", "MyStocks.UnitTests\MyStocks.UnitTests.csproj", "{C72E09BB-C877-44F4-B1CF-54266CDB2ADD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{065F4E16-72A9-4732-937D-3B4307DE59F0}"
+	ProjectSection(SolutionItems) = preProject
+		CustomDictionary.xml = CustomDictionary.xml
+		MyStocks.ruleset = MyStocks.ruleset
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

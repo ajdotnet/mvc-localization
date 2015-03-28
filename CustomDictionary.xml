@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Dictionary>
+    <Words>
+        <Recognized>
+            <Word>param</Word>
+            <Word>mvc</Word>
+            <Word>api</Word>
+            <Word>isin</Word>
+        </Recognized>
+    </Words>
+    <Acronyms>
+        <CasingExceptions>
+            <Acronym>ID</Acronym>
+        </CasingExceptions>
+    </Acronyms>
+</Dictionary>
+

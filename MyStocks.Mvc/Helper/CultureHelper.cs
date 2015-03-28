@@ -1,7 +1,9 @@
 ﻿
+using AJ.Common;
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -16,6 +18,7 @@ namespace MyStocks.Mvc.Helper
 
         const string CookieName = "PreferredCulture";
 
+        [SuppressMessage("Microsoft.Security", "CA2105:ArrayFieldsShouldNotBeReadOnly")]
         public static readonly CultureInfo[] SupportedCultures = new CultureInfo[] 
         { 
             CultureInfo.GetCultureInfo("en-US"),
@@ -28,6 +31,8 @@ namespace MyStocks.Mvc.Helper
 
         public static void ApplyUserCulture(this HttpRequest request)
         {
+            Guard.AssertNotNull(request, "request");
+
             ApplyUserCulture(request.Headers, request.Cookies);
         }
 
@@ -45,6 +50,8 @@ namespace MyStocks.Mvc.Helper
 
         public static CultureInfo GetUserCulture(NameValueCollection headers)
         {
+            Guard.AssertNotNull(headers, "headers");
+
             var acceptedCultures = GetUserCultures(headers["Accept-Language"]);
             var culture = GetMatchingCulture(acceptedCultures, SupportedCultures);
             return culture;
@@ -125,6 +132,9 @@ namespace MyStocks.Mvc.Helper
 
         public static CultureInfo GetMatch(CultureInfo[] acceptedCultures, CultureInfo[] supportedCultures, Func<CultureInfo, CultureInfo, bool> predicate)
         {
+            Guard.AssertNotNull(acceptedCultures, "acceptedCultures");
+            Guard.AssertNotNull(supportedCultures, "supportedCultures");
+
             foreach (var acceptedCulture in acceptedCultures)
             {
                 var match = supportedCultures
@@ -166,6 +176,8 @@ namespace MyStocks.Mvc.Helper
 
         public static void SetPreferredCulture(this HttpResponseBase response, string cultureName)
         {
+            Guard.AssertNotNull(response, "response");
+
             SetPreferredCulture(response.Cookies, cultureName);
         }
 
@@ -194,6 +206,9 @@ namespace MyStocks.Mvc.Helper
 
         #region cycle supported cultures (ui support)
 
+        [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+        [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "0#")]
+        [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "1#")]
         public static void GetSwitchCultures(out CultureInfo currentCulture, out CultureInfo nextCulture)
         {
             currentCulture = Thread.CurrentThread.CurrentUICulture;

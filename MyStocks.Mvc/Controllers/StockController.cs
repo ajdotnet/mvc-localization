@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MyStocks.Mvc.Models;
+using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using MyStocks.Mvc.Models;
 
 namespace MyStocks.Mvc.Controllers
 {
@@ -42,9 +41,13 @@ namespace MyStocks.Mvc.Controllers
 
         //
         // POST: /Stock/Edit/5
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         [HttpPost]
         public ActionResult Edit(Stock stock)
         {
+            if (stock == null)
+                return RedirectToAction("Index");
+
             try
             {
                 StockService.UpdateStock(stock.MapToContract());

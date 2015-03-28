@@ -124,7 +124,7 @@
     <value>ISIN</value>
   </data>
   <data name="Stock_Isin_RegEx" xml:space="preserve">
-    <value>The field ISIN must start with 2 letters, followed by 9 alphanumeric symbols, followed by adiggit.</value>
+    <value>The field ISIN must start with 2 letters, followed by 9 alphanumeric symbols, followed by a digit.</value>
   </data>
   <data name="Stock_Name" xml:space="preserve">
     <value>Name</value>

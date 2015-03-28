@@ -1,13 +1,15 @@
-﻿using System.Web;
+﻿using AJ.Common;
 using System.Web.Optimization;
 
 namespace MyStocks.Mvc
 {
-    public class BundleConfig
+    public static class BundleConfig
     {
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            Guard.AssertNotNull(bundles, "bundles");
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
