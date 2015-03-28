@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = Labels.Navigation_Home;
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+            </hgroup>
+            @{ Html.RenderPartial("_featured_" + UICulture); }
+        </div>
+    </section>
+}
+
+<ol class="round">
+    <li class="one">
+        @Html.ActionLink(Labels.Navigation_Stock_Index + "...", "Index", "Stock")
+        <br />
+        &nbsp;
+    </li>
+
+    @switch (UICulture)
+    {
+        case "de-DE":
+            <p>Derzeitige Sprache ist: @UICulture</p>
+            break;
+        default:
+            <p>Current culture is: @UICulture</p>
+            break;
+    }
+
+</ol>

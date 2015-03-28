@@ -1,0 +1,21 @@
+﻿@{
+    // cycle through supported cultures
+    System.Globalization.CultureInfo currentCulture;
+    System.Globalization.CultureInfo nextCulture;
+    MyStocks.Mvc.Helper.CultureHelper.GetSwitchCultures(out currentCulture, out nextCulture);
+    //string currentCultureDisplayName = currentCulture.Parent.NativeName;
+    //string nextCultureDisplayName = nextCulture.Parent.NativeName;
+    //string linkText = currentCultureDisplayName + " => " + nextCultureDisplayName;
+    string url = Url.Action("SetPreferredCulture", "Culture", new { culture = nextCulture.Name, returnUrl = Request.RawUrl });
+}
+@*
+    <div>
+        @Html.ActionLink(linkText, "SetPreferredCulture", "Culture", new { culture = nextCulture.Name, returnUrl = Request.RawUrl }, null)
+    </div>
+*@
+<a href="@url">
+    <img src="~/Content/flag_@(currentCulture.Name).gif" height="12" width="20" />
+    <img src="~/Content/arrow.png" height="12" width="9" />
+    <img src="~/Content/flag_@(nextCulture.Name).gif" height="12" width="20" />
+</a>
+

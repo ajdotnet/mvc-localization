@@ -1,0 +1,69 @@
+﻿@model MyStocks.Mvc.Models.Stock
+@{
+    ViewBag.Title = Labels.Navigation_Stock_Edit;
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            @{ Html.RenderPartial("_featured_" + UICulture); }
+        </div>
+    </section>
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Stock</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Isin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Isin)
+            @Html.ValidationMessageFor(model => model.Isin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <p style="clear: both">
+            <input type="submit" value="@Labels.Navigation_Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(Labels.Navigation_Back, "Details", new { id = Model.ID })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

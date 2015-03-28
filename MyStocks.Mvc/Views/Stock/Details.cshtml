@@ -1,0 +1,49 @@
+﻿@model MyStocks.Mvc.Models.Stock
+@{
+    ViewBag.Title = Labels.Navigation_Stock_Details;
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            @{ Html.RenderPartial("_featured_" + UICulture); }
+        </div>
+    </section>
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
+<fieldset>
+    <legend>Stock</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Isin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Isin)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price) €
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink(Labels.Navigation_Stock_Edit, "Edit", new { id = Model.ID }) |
+    @Html.ActionLink(Labels.Navigation_Back, "Index")
+</p>

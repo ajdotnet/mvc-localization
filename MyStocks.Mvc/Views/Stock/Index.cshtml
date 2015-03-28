@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MyStocks.Mvc.Models.Stock>
+@{
+    ViewBag.Title = Labels.Navigation_Stock_Index;
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            @{ Html.RenderPartial("_featured_" + UICulture); }
+        </div>
+    </section>
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Isin)</th>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Price)</th>
+        <th>@Html.DisplayNameFor(model => model.Date)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Isin, "Details", new { id = item.ID })</td>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td style="text-align:right">@Html.DisplayFor(modelItem => item.Price) €</td>
+            <td>@Html.DisplayFor(modelItem => item.Date)</td>
+        </tr>
+    }
+</table>
+
+<br />
+<br />
+@Html.ActionLink(Labels.Navigation_Back, "Index", "Home")
+
